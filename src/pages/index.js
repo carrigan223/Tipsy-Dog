@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
+import { convertToBgImage } from "gbimage-bridge"
+import BackgroundImage from "gatsby-background-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import styled, { keyframes } from "styled-components"
 import { fadeInDown, hinge } from "react-animations"
 import tipsyDog23 from "../images/tipsyDog2.png"
+import sanDieogoBay from "../images/sandiegobay.jpg"
 
 const bounceAnimation = keyframes`${fadeInDown}`
 const hingeAnimation = keyframes`${hinge}`
@@ -35,7 +41,7 @@ const LandingContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: white;
+  background-color: transparent;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -48,14 +54,20 @@ const TextContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
-  height: 60vh;
+  width: 100vw;
+  height: 50vh;
+  padding-top: 100px;
 `
 
 const SubText = styled.span`
   font-family: "pacifico";
-  font-size: 1.75rem;
+  font-size: 2rem;
   text-decoration: underline #84e0f5;
+  color: white;
+  background-color: #324473;
+  padding: 10px 20px;
+  border-radius: 33px;
+  box-shadow: 5px 5px 10px #84e0f5;
 `
 // const ImageContainer = styled.div`
 //   height: 300px;
@@ -66,6 +78,25 @@ const SubText = styled.span`
 // `
 
 export default function Home() {
+  const { backgroundImage123 } = useStaticQuery(
+    graphql`
+      query {
+        backgroundImage123: file(relativePath: { eq: "sandiegobay.jpg" }) {
+          childImageSharp {
+            gatsbyImageData(
+              width: 2000
+              quality: 50
+              webpOptions: { quality: 70 }
+            )
+          }
+        }
+      }
+    `
+  )
+
+  const image = getImage(backgroundImage123)
+  const bgImage = convertToBgImage(image)
+
   return (
     <div>
       <LandingContainer>
@@ -77,10 +108,20 @@ export default function Home() {
           />
           {/* <StaticImage src="../images/tipsyDog23.png" alt="Tipsy Dog Logo" /> */}
         </BouncyDiv>
-        <TextContainer>
-          <PageHeader>Tipsy Dog Beverage Company</PageHeader>
-          <SubText>Sometimes the best medicine is hair of the dog</SubText>
-        </TextContainer>
+        <BackgroundImage
+          Tag="section"
+          // Spread bgImage into BackgroundImage:
+          {...bgImage}
+          preserveStackingContext
+        >
+          {/* <div style={{ minHeight: 1000, minWidth: 1000 }}>
+            <GatsbyImage image={image} alt={"testimage"} />
+          </div> */}
+          <TextContainer>
+            <PageHeader>Tipsy Dog Beverage Company</PageHeader>
+            <SubText>Sometimes the best medicine is hair of the dog</SubText>
+          </TextContainer>
+        </BackgroundImage>{" "}
       </LandingContainer>
     </div>
   )
