@@ -21,12 +21,13 @@ const BouncyDiv = styled.div`
 const PageHeader = styled.h1`
   color: #ffd700;
   text-align: center;
-  font-family: "montserrat";
+  font-family: "oswald";
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 5rem;
   -webkit-text-stroke: 4px #324473;
   text-shadow: 5px 5px 10px #84e0f5;
   text-transform: uppercase;
+  margin-bottom: 0px;
 `
 
 const LandingContainer = styled.div`
@@ -46,11 +47,15 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 60vh;
 `
 
 const SubText = styled.span`
-
+  font-family: "pacifico";
+  font-size: 1.75rem;
+  text-decoration: underline #84e0f5;
 `
 // const ImageContainer = styled.div`
 //   height: 300px;
