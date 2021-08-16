@@ -28,7 +28,7 @@ module.exports = {
         fonts: [
           `montserrat\:300,400,700`, // you can also specify font weights and styles
           `oswald\:300,400,700`,
-          `pacifico`,
+          `lobster`
         ],
         display: "swap",
       },
