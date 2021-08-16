@@ -12,6 +12,7 @@ import {
   TextContainer,
   SubText,
   LandingContainer,
+  ImageStyled,
 } from "../styles/indexStyles.js"
 
 export default function Home() {
@@ -38,9 +39,9 @@ export default function Home() {
     <div>
       <LandingContainer>
         <BackgroundImage
-          style={{ height: "100%" }}
           Tag="section"
           // Spread bgImage into BackgroundImage:
+          style={{height: "100vh"}}
           {...bgImage}
           preserveStackingContext
         >
@@ -49,11 +50,7 @@ export default function Home() {
           </div> */}
           <TextContainer>
             <BouncyDiv>
-              <img
-                style={{ width: "500px", height: "500px" }}
-                src={tipsyDog23}
-                alt="tipsy dog logo"
-              />
+              <ImageStyled src={tipsyDog23} alt="tipsy dog logo" />
               {/* <StaticImage src="../images/tipsyDog23.png" alt="Tipsy Dog Logo" /> */}
             </BouncyDiv>
             <PageHeader>Tipsy Dog Beverage Co.</PageHeader>

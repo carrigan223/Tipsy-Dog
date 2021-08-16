@@ -1,12 +1,17 @@
 import styled, { keyframes } from "styled-components"
-import { fadeInDown, hinge } from "react-animations"
+import { hinge, fadeIn } from "react-animations"
 
 //keyframes addressing animations of logos
-const bounceAnimation = keyframes`${fadeInDown}`
+const fadeAnimation = keyframes`${fadeIn}`
 const hingeAnimation = keyframes`${hinge}`
 
+const ImageStyled = styled.img`
+  height: 500px;
+  width: 500px;
+`
+
 const BouncyDiv = styled.div`
-  animation: 3s ease-in ${bounceAnimation}, 5s ease-in 3s ${hingeAnimation};
+  animation: 7s ease-in ${fadeAnimation}, 5s ease-in 9s ${hingeAnimation};
   height: 300px;
   width: 300px;
   border-radius: 100%;
@@ -28,19 +33,53 @@ const PageHeader = styled.h1`
   text-transform: uppercase;
   margin-bottom: 0px;
   margin-top: 0px;
+
+  @media (max-width: 768px) {
+    color: white;
+    text-align: center;
+    font-family: "oswald";
+    font-weight: 700;
+    font-size: 3rem;
+    -webkit-text-stroke: 4px #324473;
+    text-shadow: 5px 5px 5px black;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
 `
 
 const LandingContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: white;
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+    align-items: center;
+    background-color: blue;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
 `
 
 const TextContainer = styled.div`
@@ -65,6 +104,10 @@ const SubText = styled.span`
   padding: 5px 20px;
   border-radius: 4px;
   /* text-shadow: 5px 5px 5px black; */
+
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `
 
 const ComingSoonText = styled.span`
@@ -72,6 +115,14 @@ const ComingSoonText = styled.span`
   color: black;
   font-size: 1.5rem;
   font-family: "montserrat";
+
+  @media (max-width: 768px) {
+    -webkit-text-stroke: 1px black;
+    color: black;
+    font-size: 1.5rem;
+    font-family: "montserrat";
+    text-align: center;
+  }
 `
 
 const EstDate = styled.span`
@@ -89,4 +140,9 @@ export {
   TextContainer,
   SubText,
   LandingContainer,
+  ImageStyled,
 }
+
+// @media (max-width: 768px) {
+
+// }
