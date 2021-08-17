@@ -20,6 +20,10 @@ const BouncyDiv = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 10vh;
+
+  @media (max-width: 768px) {
+    margin-top: 4vh;
+  }
 `
 
 const PageHeader = styled.h1`
@@ -107,6 +111,7 @@ const SubText = styled.span`
 
   @media (max-width: 768px) {
     text-align: center;
+    font-size: 2rem;
   }
 `
 
@@ -130,6 +135,7 @@ const EstDate = styled.span`
   color: black;
   font-size: 2rem;
   font-family: "lobster";
+  padding: 5px 0px;
 `
 
 export {
